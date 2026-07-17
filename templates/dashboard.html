@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Green Learning - Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}" />
+</head>
+<body>
+  <header class="topbar">
+    <nav class="navbar">
+      <div class="nav-left">
+        <h2>Smart Green Learning</h2>
+      </div>
+
+      <div class="nav-mid">
+        <button class="nav-btn" onclick="showSection('courses')">Course List</button>
+        <button class="nav-btn" onclick="showSection('enrolled')">Enrolled Courses</button>
+        <button class="nav-btn" onclick="redirectToChatbot()">AI Chat</button>
+      </div>
+    </nav>
+
+    <div class="top-right">
+      <div class="profile-menu">
+        <div class="profile-icon" id="profileBtn">User</div>
+        <div class="dropdown" id="dropdownMenu">
+          <p><strong>Name:</strong> <span id="pName">Swetha</span></p>
+          <p><strong>Email:</strong> <span id="pEmail">swetha@gmail.com</span></p>
+          <p><strong>Enrolled:</strong> <span id="pEnroll">0</span></p>
+          <p><strong>Completed:</strong> <span id="pComplete">0</span></p>
+          <hr />
+          <a href="{{ url_for('index') }}">Log Out</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-container">
+    <div class="main-content">
+      <section id="courses" class="section">
+        <h2>Available Courses</h2>
+
+        <div class="course-controls">
+          <input id="searchInput" type="text" placeholder="Search courses..." />
+          <select id="durationFilter">
+            <option value="all">All Durations</option>
+            <option value="short">Short (<= 2 hrs)</option>
+            <option value="medium">Medium (2 - 3 hrs)</option>
+            <option value="long">Long (> 3 hrs)</option>
+          </select>
+        </div>
+
+        <div id="courseList"></div>
+      </section>
+
+      <section id="enrolled" class="section hidden">
+        <h2>My Enrolled Courses</h2>
+        <div class="progress-summary" id="progressSummary">No enrolled courses yet.</div>
+        <div id="enrolledList"></div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    window.APP_ROUTES = {
+      chat: "{{ url_for('chat') }}",
+      course: "{{ url_for('course') }}"
+    };
+  </script>
+  <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>

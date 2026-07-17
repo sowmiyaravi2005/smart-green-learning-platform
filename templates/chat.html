@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Green Learning - AI Chat</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='chat.css') }}" />
+</head>
+<body>
+  <header class="chat-topbar">
+    <h2>Generative AI Chatbot</h2>
+    <nav>
+      <a href="{{ url_for('dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('chat', reset=1) }}">New Chat</a>
+    </nav>
+  </header>
+
+  <main class="chat-shell">
+    {% if course_title %}
+      <div class="selected-course">
+        <h3>You selected: {{ course_title }}</h3>
+      </div>
+    {% endif %}
+
+    {% if chat_error %}
+      <div class="chat-error">{{ chat_error }}</div>
+    {% endif %}
+
+    <section class="messages" id="messages">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="message {{ message.role }}">
+            <div class="bubble">{{ message.content }}</div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="empty-state">Ask a question to start learning.</div>
+      {% endif %}
+    </section>
+
+    <form class="chat-form" id="chatForm">
+      <input id="messageInput" type="text" placeholder="Type your question..." autocomplete="off" required />
+      <button type="submit">Send</button>
+    </form>
+
+    {% if model_name %}
+      <p class="model-caption" id="modelCaption">Model: {{ model_name }}</p>
+    {% else %}
+      <p class="model-caption" id="modelCaption"></p>
+    {% endif %}
+  </main>
+
+  <script>
+    window.APP_ROUTES = {
+      chat: "{{ url_for('chat') }}"
+    };
+  </script>
+  <script src="{{ url_for('static', filename='chat.js') }}"></script>
+</body>
+</html>

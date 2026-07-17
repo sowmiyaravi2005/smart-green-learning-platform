@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sliding Login & Signup</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <header>
+    <h1 class="heading">Smart Green Learning</h1>
+    <h3 class="title">Sliding Login & Registration Form</h3>
+  </header>
+
+  <div class="container">
+    <!-- Slider background -->
+    <div class="slider"></div>
+
+    <!-- Switch buttons -->
+    <div class="btn">
+      <button class="login">Login</button>
+      <button class="signup">Signup</button>
+    </div>
+
+    <!-- Form section -->
+    <div class="form-section">
+      <!-- Login form -->
+      <form id="loginForm" class="login-box">
+        <input type="email" id="loginEmail" class="ele" placeholder="Email" required />
+        <input type="password" id="loginPassword" class="ele" placeholder="Password" required />
+        <button type="submit" class="clkbtn">Login</button>
+      </form>
+
+      <!-- Signup form -->
+      <form id="signupForm" class="signup-box">
+        <input type="text" id="signupName" class="ele" placeholder="Enter your name" required />
+        <input type="email" id="signupEmail" class="ele" placeholder="Email" required />
+        <input type="password" id="signupPassword" class="ele" placeholder="Password" required />
+        <input type="password" id="signupConfirm" class="ele" placeholder="Confirm Password" required />
+        <button type="submit" class="clkbtn">Signup</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    window.APP_ROUTES = {
+      dashboard: "{{ url_for('dashboard') }}"
+    };
+  </script>
+  <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>
