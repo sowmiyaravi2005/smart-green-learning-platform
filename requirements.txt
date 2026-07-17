@@ -2,4 +2,4 @@ streamlit
 Flask
 gunicorn
 python-dotenv
-google-genai
+google-genai>=1.30.0
