@@ -1,0 +1,259 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f4f9f4;
+  margin: 0;
+  color: #222;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2e7d32;
+  color: white;
+  padding: 12px 20px;
+}
+
+.navbar {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-left h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.nav-mid {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-btn {
+  background-color: #43a047;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.nav-btn:hover {
+  background-color: #66bb6a;
+}
+
+.profile-menu {
+  position: relative;
+}
+
+.profile-icon {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid #fff;
+  border-radius: 999px;
+  padding: 6px 12px;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 44px;
+  right: 0;
+  background: white;
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  padding: 10px;
+  width: 240px;
+  z-index: 10;
+}
+
+.dropdown.show {
+  display: block;
+}
+
+.dropdown a {
+  color: #1b5e20;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.dashboard-container {
+  display: flex;
+  height: calc(100vh - 64px);
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.course-controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+#searchInput,
+#durationFilter {
+  border: 1px solid #c5ddc7;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  background: #fff;
+}
+
+#searchInput {
+  min-width: 240px;
+}
+
+.progress-summary {
+  background: #e8f5e9;
+  border: 1px solid #b5dcb7;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 0 0 12px;
+  color: #1b5e20;
+  font-weight: 600;
+}
+
+#courseList,
+#enrolledList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.course-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.course-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.course-card h3 {
+  margin: 10px 0 8px;
+  font-size: 1.08rem;
+  color: #2c3e50;
+}
+
+.enroll-btn,
+.start-btn,
+.progress-btn,
+.unenroll-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.enroll-btn,
+.start-btn {
+  background: #2e7d32;
+}
+
+.progress-btn {
+  background: #ef6c00;
+}
+
+.unenroll-btn {
+  background: #c62828;
+}
+
+.enroll-btn:hover,
+.start-btn:hover {
+  background: #1b5e20;
+}
+
+.progress-btn:hover {
+  background: #e65100;
+}
+
+.unenroll-btn:hover {
+  background: #b71c1c;
+}
+
+.progress-wrap {
+  margin-top: 8px;
+  text-align: left;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: #e0e0e0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #66bb6a, #2e7d32);
+  transition: width 0.25s ease;
+}
+
+.progress-label {
+  margin-top: 6px;
+  font-size: 0.88rem;
+  color: #2c3e50;
+}
+
+.complete-pill {
+  display: inline-block;
+  margin-top: 8px;
+  background: #dcedc8;
+  color: #33691e;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .dashboard-container {
+    height: auto;
+  }
+
+  #courseList,
+  #enrolledList {
+    grid-template-columns: 1fr;
+  }
+}

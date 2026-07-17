@@ -1,0 +1,155 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f4f9f4;
+  margin: 0;
+  color: #222;
+}
+
+.chat-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2e7d32;
+  color: white;
+  padding: 12px 20px;
+}
+
+.chat-topbar h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.chat-topbar nav {
+  display: flex;
+  gap: 12px;
+}
+
+.chat-topbar a {
+  background-color: #43a047;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  padding: 10px 16px;
+  text-decoration: none;
+}
+
+.chat-topbar a:hover {
+  background-color: #66bb6a;
+}
+
+.chat-shell {
+  max-width: 850px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.selected-course {
+  background: linear-gradient(90deg, #e6ffe6, #ccffcc);
+  border-left: 6px solid #28a745;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  padding: 12px;
+  text-align: center;
+}
+
+.selected-course h3 {
+  color: #155724;
+  margin: 0;
+}
+
+.chat-error {
+  background: #ffebee;
+  border: 1px solid #ffcdd2;
+  border-radius: 10px;
+  color: #b71c1c;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+}
+
+.messages {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  min-height: 420px;
+  padding: 18px;
+}
+
+.message {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.bubble {
+  border-radius: 14px;
+  line-height: 1.5;
+  max-width: 75%;
+  padding: 10px 14px;
+  white-space: pre-wrap;
+}
+
+.assistant .bubble {
+  background: #e8f5e9;
+  color: #1b5e20;
+}
+
+.user .bubble {
+  background: #2e7d32;
+  color: white;
+}
+
+.empty-state {
+  color: #607d60;
+  font-weight: 600;
+  padding: 12px;
+  text-align: center;
+}
+
+.chat-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.chat-form input {
+  border: 1px solid #c5ddc7;
+  border-radius: 8px;
+  flex: 1;
+  font-size: 1rem;
+  padding: 12px;
+}
+
+.chat-form button {
+  background: #2e7d32;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 12px 18px;
+}
+
+.chat-form button:hover {
+  background: #1b5e20;
+}
+
+.model-caption {
+  color: #607d60;
+  font-size: 0.88rem;
+  margin: 10px 2px;
+}
+
+@media (max-width: 768px) {
+  .chat-topbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .bubble {
+    max-width: 88%;
+  }
+}
