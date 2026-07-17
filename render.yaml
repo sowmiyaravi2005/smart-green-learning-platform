@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: smart-green-learning-platform
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: FLASK_SECRET_KEY
+        generateValue: true
